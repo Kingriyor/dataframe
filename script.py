@@ -54,8 +54,11 @@ class script:
                 # print(genres)
 
                 # TODO send to rabbitmq and create a consumer
-
-                models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
+                try:
+                    models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
+                except:
+                    print ("error saving to DB")
+                    # TODO then send to an error queue
 
 
 
@@ -123,8 +126,11 @@ class script:
                 # print("showtimes \n\n")
 
                 # TODO send to rabbitmq and create a consumer
-
-                models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
+                try:
+                    models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
+                except:
+                    print ("error saving to DB")
+                    # TODO then send to an error queue
 
 
 
