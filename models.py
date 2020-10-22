@@ -7,7 +7,7 @@ class Theatre_movies(db.Model):
     title = db.Column(db.String(100))
     genres = db.Column(db.String(50))
     description = db.Column(db.String(200))
-    theatre = db.Column(db.String(100))
+    theatre = db.Column(db.String(100)) # comma_seperated theatre id (from showtimes)
     release_year = db.Column(db.Integer)
 
     showtimes = db.Column(db.String(100)) #json to string
@@ -26,7 +26,7 @@ class Theatre_movies(db.Model):
         self.theatre = theatre
         self.release_year = release_year
 
-        self.showtimes = meta_data['startTime'] if 'startTime' in meta_data else ""
+        self.showtimes = meta_data['showtimes'] if 'showtimes' in meta_data else ""
         self.duration = meta_data['duration'] if 'duration' in meta_data else ""
         self.tmsId = meta_data['tmsId'] if 'tmsId' in meta_data else ""
         self.rootId = meta_data['rootId'] if 'rootId' in meta_data else ""
