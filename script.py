@@ -1,6 +1,7 @@
 import requests
 import json
 from config import config
+import models
 
 
 class script:
@@ -69,5 +70,7 @@ class script:
 
 script().getTVMovies()
 # script().getTheatreMovies()
+
+# models.create_movie("test", "Comedy drama,Dark comedy", "A TV star and his longtime stunt double make their way around a changing industry in 1969 Hollywood.", "2019", "582", "tv", {"tmsId": "MV010921590000", "rootId": "15226224","subType": "Feature Film",})
 
 
