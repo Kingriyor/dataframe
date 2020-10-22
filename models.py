@@ -5,7 +5,7 @@ class Theatre_movies(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     title = db.Column(db.String(100))
-    genres = db.Column(db.String(50))
+    genres = db.Column(db.String(100))
     description = db.Column(db.String(200))
     theatre = db.Column(db.String(100)) # comma_seperated theatre id (from showtimes)
     release_year = db.Column(db.Integer)
@@ -20,11 +20,11 @@ class Theatre_movies(db.Model):
 
 
     def __init__(self, title, genres, description, theatre, release_year, meta_data = {}):
-        self.title = title
-        self.genres = genres
-        self.description = description
-        self.theatre = theatre
-        self.release_year = release_year
+        self.title = str(title)
+        self.genres = str(genres)
+        self.description = str(description)
+        self.theatre = str(theatre)
+        self.release_year = str(release_year)
 
         self.showtimes = meta_data['showtimes'] if 'showtimes' in meta_data else ""
         self.duration = meta_data['duration'] if 'duration' in meta_data else ""
@@ -38,7 +38,7 @@ class Tv_movies(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     title = db.Column(db.String(100))
-    genres = db.Column(db.String(50)) #pass as comma seperated string
+    genres = db.Column(db.String(100)) #pass as comma seperated string
     description = db.Column(db.String(200))
     channel = db.Column(db.String(100))
     release_year = db.Column(db.Integer)

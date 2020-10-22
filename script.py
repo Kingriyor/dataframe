@@ -24,8 +24,38 @@ class script:
             size = len(json_response)
             for x in range(size):
                 val = json_response[x]
-                print(val)
-                print("_________________________")
+                
+                title = val['program']['title']
+                genres_json = val['program']['genres']
+                genres = ""
+                for x in genres_json:
+                    genres+=x
+                    genres+=','
+                description = val['program']['shortDescription'] if 'shortDescription' in val['program'] else ""
+                channel = val['station']['channel']
+                release_year = val['program']['releaseYear']
+
+                
+                meta_data = {
+                    'startTime' : val['startTime'],
+                    'endTime' : val['endTime'],
+                    'duration' : val['duration'],
+                    'tmsId' : val['program']['tmsId'],
+                    'rootId' : val['program']['rootId'],
+                    'releaseDate' : val['program']['releaseDate'],
+                    'titleLang' : val['program']['titleLang'],
+                    'longDescription' : val['program']['longDescription'],
+                    'stationId' : val['stationId']
+                }
+
+                # print(genres)
+
+                models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
+
+
+
+
+                
         
 
         # self.get_stream(url)
