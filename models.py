@@ -12,7 +12,7 @@ class Theatre_movies(db.Model):
 
     showtimes = db.Column(db.String(1000)) #json to string
     # duration = db.Column(db.String(100))
-    tmsId = db.Column(db.String(100))
+    tmsId = db.Column(db.String(100), unique=True)
     rootId = db.Column(db.String(100))
     releaseDate = db.Column(db.String(100)) 
     titleLang = db.Column(db.String(100))
@@ -46,7 +46,7 @@ class Tv_movies(db.Model):
     startTime = db.Column(db.String(100))
     endTime = db.Column(db.String(100))
     duration = db.Column(db.String(100))
-    tmsId = db.Column(db.String(100))
+    tmsId = db.Column(db.String(100), unique=True)
     rootId = db.Column(db.String(100))
     releaseDate = db.Column(db.String(100))
     titleLang = db.Column(db.String(100))
