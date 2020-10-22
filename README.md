@@ -26,5 +26,5 @@ You only need to do this once, unless you change your model definitions (see bel
 Then run the app itself:
 
 ```
-$ python app.py
+$ python script.py
 ```

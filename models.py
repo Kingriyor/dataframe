@@ -10,8 +10,8 @@ class Theatre_movies(db.Model):
     theatre = db.Column(db.String(100)) # comma_seperated theatre id (from showtimes)
     release_year = db.Column(db.Integer)
 
-    showtimes = db.Column(db.String(100)) #json to string
-    duration = db.Column(db.String(100))
+    showtimes = db.Column(db.String(1000)) #json to string
+    # duration = db.Column(db.String(100))
     tmsId = db.Column(db.String(100))
     rootId = db.Column(db.String(100))
     releaseDate = db.Column(db.String(100)) 
@@ -20,14 +20,14 @@ class Theatre_movies(db.Model):
 
 
     def __init__(self, title, genres, description, theatre, release_year, meta_data = {}):
-        self.title = str(title)
-        self.genres = str(genres)
-        self.description = str(description)
-        self.theatre = str(theatre)
-        self.release_year = str(release_year)
+        self.title = title
+        self.genres = genres
+        self.description = description
+        self.theatre = theatre
+        self.release_year = release_year
 
         self.showtimes = meta_data['showtimes'] if 'showtimes' in meta_data else ""
-        self.duration = meta_data['duration'] if 'duration' in meta_data else ""
+        # self.duration = meta_data['duration'] if 'duration' in meta_data else ""
         self.tmsId = meta_data['tmsId'] if 'tmsId' in meta_data else ""
         self.rootId = meta_data['rootId'] if 'rootId' in meta_data else ""
         self.releaseDate = meta_data['releaseDate'] if 'releaseDate' in meta_data else ""
