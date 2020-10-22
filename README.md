@@ -6,6 +6,11 @@ Python 2.7
 pip install -r requirements.txt
 ```
 
+If you need to add new packages
+```
+pip install package && pip freeze > requirements.txt
+```
+
 ### Running the App
 
 - create a db named 'dataframe'

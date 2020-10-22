@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 username = 'root'
 password = 'root'
-db = 'inventory'
+db = 'dataframe'
 host_port = 'localhost:8889'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+ username +':'+ password + '@' + host_port + '/dataframe'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+ username +':'+ password + '@' + host_port + '/' + db
 db = SQLAlchemy(app)
 
 
