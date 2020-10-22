@@ -18,7 +18,7 @@ class script:
         self.get_stream(url)
 
     def getTheatreMovies(self):
-        url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&line_up_id=" + self.lineupId + "&startDate=" + self.startDateTime
+        url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         # response = requests.request("GET", url, headers={}, data = {})
         # # print(response.text.encode('utf8'))
         # print(response.json()[1])
