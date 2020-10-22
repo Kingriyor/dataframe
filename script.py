@@ -2,6 +2,8 @@ import requests
 import json
 from config import config
 import models
+from datetime import datetime
+
 
 
 class script:
@@ -10,7 +12,7 @@ class script:
         self.api_key = config['tms']['key']
         self.lineupId = config['tms']['lineupId']
         self.zip_code = config['tms']['zip_code']
-        self.startDateTime = "2020-10-22" # current date TODO
+        self.startDateTime = datetime.today().strftime('%Y-%m-%d') # "2020-10-22"
 
     def getTVMovies(self):
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
