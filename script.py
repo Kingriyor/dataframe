@@ -12,21 +12,31 @@ class script:
 
     def getTVMovies(self):
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
-        payload = {}
-        headers= {}
-        response = requests.request("GET", url, headers=headers, data = payload)
-        # print(response.text.encode('utf8'))
-        print(response.json()[1])
+        # response = requests.request("GET", url, headers={}, data = {})
+        # # print(response.text.encode('utf8'))
+        # print(response.json()[1])
+        self.get_stream(url)
 
     def getTheatreMovies(self):
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&line_up_id=" + self.lineupId + "&startDate=" + self.startDateTime
-        payload = {}
-        headers= {}
-        response = requests.request("GET", url, headers=headers, data = payload)
-        # print(response.text.encode('utf8'))
-        print(response.json()[1])
+        # response = requests.request("GET", url, headers={}, data = {})
+        # # print(response.text.encode('utf8'))
+        # print(response.json()[1])
+        self.get_stream(url)
+
+    def get_stream(self, url, headers=None):
+        s = requests.Session()
+
+        with s.get(url, headers=None, stream=True) as resp:
+            for line in resp.iter_lines():
+                if line:
+                    print(line)
+
 
 
 
 script().getTVMovies()
+print("________________________________________________________________________________________")
+script().getTheatreMovies()
+
 
