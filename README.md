@@ -28,3 +28,6 @@ Then run the app itself:
 ```
 $ python script.py
 ```
+
+
+TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe

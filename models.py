@@ -11,8 +11,8 @@ class Theatre_movies(db.Model):
     release_year = db.Column(db.Integer)
 
     showtimes = db.Column(db.String(1000)) #json to string
-    # duration = db.Column(db.String(100))
-    tmsId = db.Column(db.String(100), unique=True)
+    # tmsId = db.Column(db.String(100), unique=True)
+    tmsId = db.Column(db.String(100))
     rootId = db.Column(db.String(100))
     releaseDate = db.Column(db.String(100)) 
     titleLang = db.Column(db.String(100))
@@ -46,7 +46,8 @@ class Tv_movies(db.Model):
     startTime = db.Column(db.String(100))
     endTime = db.Column(db.String(100))
     duration = db.Column(db.String(100))
-    tmsId = db.Column(db.String(100), unique=True)
+    # tmsId = db.Column(db.String(100), unique=True)
+    tmsId = db.Column(db.String(100))
     rootId = db.Column(db.String(100))
     releaseDate = db.Column(db.String(100))
     titleLang = db.Column(db.String(100))
@@ -98,6 +99,7 @@ def create_movie(title, genres, description, release_year, theatre_or_channel, t
 
 
 if __name__ == "__main__":
+    #TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
 
     # Run this file directly to create the database tables.
     print "Creating database tables..."

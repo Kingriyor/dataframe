@@ -1,6 +1,8 @@
 import pandas as pd
 import glob
 
+#TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
+
 def read_file(file:str='')-> pd.DataFrame:
   if file.endswith(".csv"):
     dataframe = pd.read_csv(file)
