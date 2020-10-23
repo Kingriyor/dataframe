@@ -7,6 +7,7 @@ from sqlalchemy import create_engine
 # TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
 
 def read_file(file: str = '') -> pd.DataFrame:
+    # This function gets a dataframe from a json file
     if file.endswith(".csv"):
         dataframe = pd.read_csv(file)
     elif file.endswith(".json"):
@@ -17,20 +18,23 @@ def read_file(file: str = '') -> pd.DataFrame:
 
 
 def read_db(table_name) -> pd.DataFrame:
+    # This function gets a dataframe from a database table
     db_connection = create_engine(connection_string)
     query_string = ''
 
     if table_name == 'theatre_movies':
         query_string = "SELECT title, releaseDate, genres,description, tmsId, GROUP_CONCAT(theatre, ',') AS theatres FROM " + table_name + " GROUP BY tmsId"
 
-    else:
+    elif table_name == 'tv_movies':
         query_string = "SELECT title, releaseDate, genres,description, tmsId, GROUP_CONCAT(channel, ',') AS channels FROM " + table_name + " GROUP BY tmsId"
 
-    print(query_string)
+    else:
+        query_string = "SELECT * FROM " + table_name
+
+    # print(query_string)
 
     df = pd.read_sql(query_string, con=db_connection)
 
-    # print(df)
     return df
 
 
@@ -50,8 +54,7 @@ def top_five_movies():
     movies = read_db('tv_movies')
 
     # remove multiple commas
-    theatre['theatres'] = theatre['theatres'].map(
-        lambda x: x.replace(',,', ','))
+    theatre['theatres'] = theatre['theatres'].map(lambda x: x.replace(',,', ','))
     movies['channels'] = movies['channels'].map(lambda x: x.replace(',,', ','))
 
     # movies = pd.concat([movies.drop(['program','ratings'],axis=1), movies.program.apply(pd.Series)],axis=1)
