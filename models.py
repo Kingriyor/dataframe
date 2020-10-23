@@ -94,6 +94,12 @@ def create_movie(title, genres, description, release_year, theatre_or_channel, t
 
     return movie
 
+def clear_table_contents():
+    db.session.query(Tv_movies).delete()
+    db.session.query(Theatre_movies).delete()
+    db.session.commit()
+
+
 
 if __name__ == "__main__":
     #TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe

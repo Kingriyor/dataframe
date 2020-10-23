@@ -145,6 +145,10 @@ class script:
 
         # self.get_stream(url)
 
+    def clear_tables(self):
+        models.clear_table_contents()
+
+
     # def get_stream(self, url, headers=None):
     #     s = requests.Session()
 
@@ -164,8 +168,9 @@ class script:
     #                 print(line.json())
 
 
-
-
+# clear tables
+script().clear_tables()
+# reload table with new data from TMS
 script().getTVMovies()
 script().getTheatreMovies()
 
