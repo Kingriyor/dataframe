@@ -4,8 +4,6 @@ from app import connection_string
 from sqlalchemy import create_engine
 
 
-# TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
-
 def read_file(file: str = '') -> pd.DataFrame:
     # This function gets a dataframe from a json file
     if file.endswith(".csv"):
@@ -54,11 +52,11 @@ def top_five_movies():
     theatre = read_db('theatre_movies')
     movies = read_db('tv_movies')
 
-    # remove multiple commas
+    # remove multiple commas in the 'theatre_Ids' and 'channels' columns
     theatre['theatre_Ids'] = theatre['theatre_Ids'].map(lambda x: x.replace(',,', ','))
     movies['channels'] = movies['channels'].map(lambda x: x.replace(',,', ','))
 
-    # make genres a list
+    # convert genres to a lists from comma-seperated strings
     theatre['genres'] = theatre['genres'].map(lambda x: x.strip(',').split(','))
     movies['genres'] = movies['genres'].map(lambda x: x.strip(',').split(','))
 
