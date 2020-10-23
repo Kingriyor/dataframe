@@ -39,6 +39,7 @@ def read_db(table_name) -> pd.DataFrame:
 
 
 def explode_and_groupby(data: pd.DataFrame, groupby=True):
+    # TODO look into this, its not exploding comma seperated
     data = data.explode('genres').reset_index(drop=True)
     if groupby:
         data = data[['genres', 'tmsId']].groupby(
@@ -57,18 +58,24 @@ def top_five_movies():
     theatre['theatres'] = theatre['theatres'].map(lambda x: x.replace(',,', ','))
     movies['channels'] = movies['channels'].map(lambda x: x.replace(',,', ','))
 
+    # make genres a list
+    theatre['genres'] = theatre['genres'].map(lambda x: x.strip(',').split(','))
+    movies['genres'] = movies['genres'].map(lambda x: x.strip(',').split(','))
+
+
+
     # Group both the Movie lists based on ‘Genre’ ------------------------------------------------------------------------------------------------
     theatre_genre_group = explode_and_groupby(theatre, groupby=True)
-    print('\n\n')
+    print('\n theatre_genre_groups \n')
     print(theatre_genre_group)
     print('\n\n')
 
     tv_genre_group = explode_and_groupby(movies, groupby=True)
-    print('\n\n')
+    print('\n tv_genre_groups \n')
     print(tv_genre_group)
     print('\n\n')
 
-    # Group both the Movie lists based on ‘Genre’ ------------------------------------------------------------------------------------------------
+    # Group both the Movie lists based on ‘Genre’ ------------------------------------------------------------------------------------------------ 61
 
 
     # Combine the movie lists (Theatre and Channel movies) based on the Genres ------------------------------------------------------------------------------------------------
@@ -78,13 +85,21 @@ def top_five_movies():
 
     # Return the Top 5 Genres with the highest movie count along with the movie details ------------------------------------------------------------------------------------------------
     top5 = explode_and_groupby(joined_data).head(5)
-    # print(top5)
+    print('\n top5 \n')
+    print(top5)
+    print('\n\n')
+
     top5_list = list(top5.index)
     joined_data = explode_and_groupby(joined_data, groupby=False)
     condition = joined_data['genres'].isin(top5_list)
     final_data = joined_data[condition].reset_index(drop=True)
     # final_data.drop_duplicates(keep='first',inplace=True, subset="tmsId")
-    # print(final_data)
+
+    # TODO sort by genre
+    print('\n movie details for top5 \n')
+    print(final_data)
+    print('\n\n')
+
     return final_data
 
 
