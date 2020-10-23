@@ -23,7 +23,7 @@ def read_db(table_name) -> pd.DataFrame:
     query_string = ''
 
     if table_name == 'theatre_movies':
-        query_string = "SELECT title, releaseDate, genres,description, tmsId, GROUP_CONCAT(theatre, ',') AS theatres FROM " + table_name + " GROUP BY tmsId"
+        query_string = "SELECT title, releaseDate, genres,description, tmsId, GROUP_CONCAT(theatre, ',') AS theatre_Ids FROM " + table_name + " GROUP BY tmsId"
 
     elif table_name == 'tv_movies':
         query_string = "SELECT title, releaseDate, genres,description, tmsId, GROUP_CONCAT(channel, ',') AS channels FROM " + table_name + " GROUP BY tmsId"
@@ -55,7 +55,7 @@ def top_five_movies():
     movies = read_db('tv_movies')
 
     # remove multiple commas
-    theatre['theatres'] = theatre['theatres'].map(lambda x: x.replace(',,', ','))
+    theatre['theatre_Ids'] = theatre['theatre_Ids'].map(lambda x: x.replace(',,', ','))
     movies['channels'] = movies['channels'].map(lambda x: x.replace(',,', ','))
 
     # make genres a list
@@ -75,12 +75,12 @@ def top_five_movies():
     print(tv_genre_group)
     print('\n\n')
 
-    # Group both the Movie lists based on ‘Genre’ ------------------------------------------------------------------------------------------------ 61
+    # Group both the Movie lists based on ‘Genre’ ------------------------------------------------------------------------------------------------
 
 
     # Combine the movie lists (Theatre and Channel movies) based on the Genres ------------------------------------------------------------------------------------------------
     joined_data = pd.concat([movies, theatre])[
-        ['title', 'releaseDate', 'genres', 'description', 'tmsId', 'theatres', 'channels']]
+        ['title', 'releaseDate', 'genres', 'description', 'tmsId', 'theatre_Ids', 'channels']]
 
 
     # Return the Top 5 Genres with the highest movie count along with the movie details ------------------------------------------------------------------------------------------------
