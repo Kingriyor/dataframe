@@ -1,4 +1,4 @@
-### Installing Dependencies
+## Installing Dependencies
 
 Python 3.8
 
@@ -11,11 +11,24 @@ If you need to add new packages
 pip install package && pip freeze > requirements.txt
 ```
 
-### Running the App
 
+## Database Setup
+
+- update database section of config.py with your sql credentials
+
+#### ---------------------------------- Option 1 ------------------------------------
+```
+- import the database export shared into your own DB (/database/dataframe.sql)
+```
+
+--------------------------------------------------------------------------------
+
+#### ---------------------------------- Option 2 ------------------------------------
+```
 - create a db named 'dataframe'
+```
 
-- To run the app, first run the `models.py` file directly to create the database tables:
+- Run `models.py` file directly to create the database tables:
 
 ```
 $ python models.py
@@ -23,7 +36,12 @@ $ python models.py
 
 You only need to do this once, unless you change your model definitions (see below).
 
-Then run the app itself:
+--------------------------------------------------------------------------------
+
+
+
+
+## Running the App
 
 ```
 $ python script.py
@@ -31,6 +49,7 @@ $ python script.py
 
 
 TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
+
 
 
 

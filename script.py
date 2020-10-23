@@ -16,10 +16,15 @@ class script:
 
     def getTVMovies(self):
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
-        response = requests.request("GET", url, headers={}, data = {})
+        try:
+            response = requests.request("GET", url, headers={}, data = {})
+        except:
+            print ("Request failed")
+            return
+
         if response.status_code != 200:
-            print ("error occured")
-            print (response.status_code)
+            print ("error occured calling TMS TV MOVIES URL")
+            print ("Status Code => " + str(response.status_code))
         else:
             # print(response.text.encode('utf8'))
             json_response = response.json()
@@ -70,10 +75,15 @@ class script:
 
     def getTheatreMovies(self):
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
-        response = requests.request("GET", url, headers={}, data = {})
+        try:
+            response = requests.request("GET", url, headers={}, data = {})
+        except:
+            print ("Request failed")
+            return
+
         if response.status_code != 200:
-            print ("error occured")
-            print (response.status_code)
+            print ("error occured calling TMS THEATRE MOVIES URL")
+            print ("Status Code => " + str(response.status_code))
         else:
             # print(response.text.encode('utf8'))
             json_response = response.json()
