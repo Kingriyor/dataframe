@@ -93,9 +93,9 @@ def top_five_movies():
     joined_data = explode_and_groupby(joined_data, groupby=False)
     condition = joined_data['genres'].isin(top5_list)
     final_data = joined_data[condition].reset_index(drop=True)
+    final_data = final_data.sort_values('genres')
     # final_data.drop_duplicates(keep='first',inplace=True, subset="tmsId")
 
-    # TODO sort by genre
     print('\n movie details for top5 \n')
     print(final_data)
     print('\n\n')
