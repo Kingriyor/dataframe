@@ -11,8 +11,8 @@ db = config['database']['mysql']['database']
 host_port = config['database']['mysql']['host_port']
 
 
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+ username +':'+ password + '@' + host_port + '/' + db
+connection_string = 'mysql+pymysql://'+ username +':'+ password + '@' + host_port + '/' + db
+app.config['SQLALCHEMY_DATABASE_URI'] = connection_string
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
