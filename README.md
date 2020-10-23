@@ -41,10 +41,17 @@ You only need to do this once, unless you change your model definitions (see bel
 
 
 
-## Running the App
+## Running the TMS script to load data in Database
 
 ```
 $ python script.py
+```
+
+
+## Running the Dataframe script
+
+```
+$ python top_five.py
 ```
 
 

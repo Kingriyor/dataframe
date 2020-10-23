@@ -35,7 +35,9 @@ def top_five_movies():
   movies = read_db('tv_movies')
 
   # movies = pd.concat([movies.drop(['program','ratings'],axis=1), movies.program.apply(pd.Series)],axis=1)
-  joined_data = pd.concat([movies,theatre])[['title','releaseDate','genres','description','tmsId']]
+
+  joined_data = pd.concat([movies,theatre])[['title','releaseDate','genres','description','tmsId','theatre','channel']]
+  # joined_data = pd.concat([movies,theatre])[['genres','tmsId']]
   top5 = explode_and_groupby(joined_data).head(5)
   print(top5)
   top5_list = list(top5.index)
