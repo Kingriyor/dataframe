@@ -60,7 +60,10 @@ class script:
 
                 # TODO send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
-                    models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
+                    db_response = models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
+                    if db_response == False:
+                        print ("error saving to DB")
+                        # TODO then send to an error queue
                 except:
                     print ("error saving to DB")
                     # TODO then send to an error queue
@@ -127,17 +130,13 @@ class script:
                     'titleLang' : val['titleLang'] if 'titleLang' in val else "",
                     'longDescription' : val['longDescription'] if 'longDescription' in val else ""
                 }
-                # print("theatre")
-                # print(theatre)
-                # print("theatre \n\n")
-
-                # print("showtimes")
-                # print(showtimes)
-                # print("showtimes \n\n")
 
                 # TODO send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
-                    models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
+                    db_response = models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
+                    if db_response == False:
+                        print ("error saving to DB")
+                        # TODO then send to an error queue
                 except:
                     print ("error saving to DB")
                     # TODO then send to an error queue
@@ -169,7 +168,4 @@ class script:
 
 script().getTVMovies()
 script().getTheatreMovies()
-
-# models.create_movie("test", "Comedy drama,Dark comedy", "A TV star and his longtime stunt double make their way around a changing industry in 1969 Hollywood.", "2019", "582", "tv", {"tmsId": "MV010921590000", "rootId": "15226224","subType": "Feature Film",})
-
 

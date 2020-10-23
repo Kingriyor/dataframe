@@ -27,7 +27,6 @@ class Theatre_movies(db.Model):
         self.release_year = release_year
 
         self.showtimes = meta_data['showtimes'] if 'showtimes' in meta_data else ""
-        # self.duration = meta_data['duration'] if 'duration' in meta_data else ""
         self.tmsId = meta_data['tmsId'] if 'tmsId' in meta_data else ""
         self.rootId = meta_data['rootId'] if 'rootId' in meta_data else ""
         self.releaseDate = meta_data['releaseDate'] if 'releaseDate' in meta_data else ""
@@ -38,7 +37,7 @@ class Tv_movies(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
     title = db.Column(db.String(100))
-    genres = db.Column(db.String(100)) #pass as comma seperated string
+    genres = db.Column(db.String(100)) # passed as comma seperated string
     description = db.Column(db.String(200))
     channel = db.Column(db.String(100))
     release_year = db.Column(db.Integer)
@@ -77,8 +76,6 @@ class Tv_movies(db.Model):
 
 
 def create_movie(title, genres, description, release_year, theatre_or_channel, type='theatre', meta_data={}):
-    # Note type must be ['theatre','tv']
-
     allowed_types = ['theatre','tv']
     if type.lower() not in allowed_types:
         return False
