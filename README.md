@@ -55,17 +55,8 @@ $ python top_five.py
 ```
 
 
-TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
-
-
-
-
-1) - divide it to have
-tv_movies horror , theatre_movies horror , tv_movies comedy, theatre_movies comedy ....... etc
-
-2) - add them 
-comedy = tv_movies comedy + theatre_movies comedy
-horror = tv_movies horror + theatre_movies horror
-
-3) get count for comedy, horror ...... etc
-get highest 5 genres alongside the movies that fall under them
+### Usefull 
+Sql query
+```
+- SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+```
