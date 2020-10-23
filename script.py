@@ -53,7 +53,7 @@ class script:
 
                 # print(genres)
 
-                # TODO send to rabbitmq and create a consumer
+                # TODO send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
                     models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
                 except:
@@ -125,7 +125,7 @@ class script:
                 # print(showtimes)
                 # print("showtimes \n\n")
 
-                # TODO send to rabbitmq and create a consumer
+                # TODO send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
                     models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
                 except:

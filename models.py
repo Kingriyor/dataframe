@@ -102,6 +102,6 @@ if __name__ == "__main__":
     #TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
 
     # Run this file directly to create the database tables.
-    print "Creating database tables..."
+    print ("Creating database tables...")
     db.create_all()
-    print "Done!"
+    print ("Done!")
