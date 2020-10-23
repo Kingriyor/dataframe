@@ -18,7 +18,7 @@ def read_file(file:str='')-> pd.DataFrame:
 def read_db(table_name)-> pd.DataFrame:
   db_connection = create_engine(connection_string)
   df = pd.read_sql('SELECT * FROM ' + table_name, con=db_connection)
-  print(df)
+  # print(df)
   return df
 
 def explode_and_groupby(data:pd.DataFrame,groupby=True):
@@ -37,10 +37,13 @@ def top_five_movies():
   # movies = pd.concat([movies.drop(['program','ratings'],axis=1), movies.program.apply(pd.Series)],axis=1)
   joined_data = pd.concat([movies,theatre])[['title','releaseDate','genres','description','tmsId']]
   top5 = explode_and_groupby(joined_data).head(5)
+  print(top5)
   top5_list = list(top5.index)
   joined_data = explode_and_groupby(joined_data,groupby=False)
   condition = joined_data['genres'].isin(top5_list)
   final_data = joined_data[condition].reset_index(drop=True)
+  final_data.drop_duplicates(keep='first',inplace=True)
+  print (final_data)
   return final_data
 
 top_five_movies()
