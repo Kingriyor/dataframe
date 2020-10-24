@@ -1,15 +1,8 @@
 ## Installing Dependencies
 
-Python 3.8
-
-```
-pip install -r requirements.txt
-```
-
-If you need to add new packages
-```
-pip install package && pip freeze > requirements.txt
-```
+- Python 3.8
+- Pipenv
+- SQL database server
 
 
 ## Database Setup
@@ -26,6 +19,18 @@ OR
 
 - create an SQL db named 'dataframe'
 ```
+
+
+# Environment setup
+
+```
+- $ pipenv install
+```
+
+```
+- $ pipenv shell
+```
+
 
 ## Running the Dataframe script
 
