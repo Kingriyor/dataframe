@@ -1,25 +1,45 @@
-### Installing Dependencies
+## Installing Dependencies
 
-Python 2.7
+- Python 3.8
+- Pipenv
+- SQL database server
 
-```
-pip install -r requirements.txt
-```
 
-### Running the App
+## Database Setup
 
-- create a db named 'dataframe'
+1) update database section of config.py with your sql credentials
 
-- To run the app, first run the `models.py` file directly to create the database tables:
 
-```
-$ python models.py
-```
-
-You only need to do this once, unless you change your model definitions (see below).
-
-Then run the app itself:
+2) create DB
 
 ```
-$ python app.py
+- import the database export shared into your own DB (/database/dataframe.sql)
+
+OR
+
+- create an SQL db named 'dataframe'
 ```
+
+
+# Environment setup
+
+```
+- $ pipenv install
+```
+
+```
+- $ pipenv shell
+```
+
+## Running the unittest
+
+```
+$ python test.py
+```
+
+## Running the Dataframe script
+
+```
+$ python entry.py
+```
+
