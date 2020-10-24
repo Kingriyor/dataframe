@@ -14,19 +14,20 @@ pip install package && pip freeze > requirements.txt
 
 ## Database Setup
 
-- update database section of config.py with your sql credentials
+1) update database section of config.py with your sql credentials
 
-#### ---------------------------------- Option 1 ------------------------------------
+
+2) create DB
+
 ```
 - import the database export shared into your own DB (/database/dataframe.sql)
+
+OR
+
+- create an SQL db named 'dataframe'
 ```
 
---------------------------------------------------------------------------------
-
-#### ---------------------------------- Option 2 ------------------------------------
-```
-- create a db named 'dataframe'
-```
+3) create tables in DB
 
 - Run `models.py` file directly to create the database tables:
 
@@ -34,7 +35,7 @@ pip install package && pip freeze > requirements.txt
 $ python models.py
 ```
 
-You only need to do this once, unless you change your model definitions (see below).
+You only need to do this once, unless you change your model definitions
 
 --------------------------------------------------------------------------------
 
@@ -54,9 +55,3 @@ $ python script.py
 $ python top_five.py
 ```
 
-
-### Usefull 
-Sql query
-```
-- SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
-```

@@ -1,4 +1,5 @@
-from app import db
+from app import db, connection_string
+from sqlalchemy import create_engine
 
 class Theatre_movies(db.Model):
     # We always need an id
@@ -101,8 +102,11 @@ def clear_table_contents():
 
 
 
+
 if __name__ == "__main__":
     #TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
+    db_connection = create_engine(connection_string)
+    db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
 
     # Run this file directly to create the database tables.
     print ("Creating database tables...")

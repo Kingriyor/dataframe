@@ -18,6 +18,7 @@ def read_file(file: str = '') -> pd.DataFrame:
 def read_db(table_name) -> pd.DataFrame:
     # This function gets a dataframe from a database table
     db_connection = create_engine(connection_string)
+
     query_string = ''
 
     if table_name == 'theatre_movies':
