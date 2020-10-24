@@ -4,17 +4,6 @@ from app import connection_string
 from sqlalchemy import create_engine
 
 
-def read_file(file: str = '') -> pd.DataFrame:
-    # This function gets a dataframe from a json file
-    if file.endswith(".csv"):
-        dataframe = pd.read_csv(file)
-    elif file.endswith(".json"):
-        dataframe = pd.read_json(file)
-    else:
-        print('No file found. Ensure you pass a json/csv file')
-    return dataframe
-
-
 def read_db(table_name) -> pd.DataFrame:
     # This function gets a dataframe from a database table
     db_connection = create_engine(connection_string)
@@ -46,9 +35,7 @@ def explode_and_groupby(data: pd.DataFrame, groupby=True):
     return data
 
 
-def top_five_movies():
-    # theatre = read_file('theatre_movies.json')
-    # movies = pd.read_json('tv_movies.json')
+def top_five_genres():
 
     theatre = read_db('theatre_movies')
     movies = read_db('tv_movies')
@@ -101,5 +88,5 @@ def top_five_movies():
 
     return top5
 
-
-top_five_movies()
+# Run infile
+# top_five_genres()

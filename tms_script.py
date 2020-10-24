@@ -69,13 +69,6 @@ class script:
                     # TODO then send to an error queue
 
 
-
-
-                
-        
-
-        # self.get_stream(url)
-
     def getTheatreMovies(self):
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         try:
@@ -88,7 +81,6 @@ class script:
             print ("error occured calling TMS THEATRE MOVIES URL")
             print ("Status Code => " + str(response.status_code))
         else:
-            # print(response.text.encode('utf8'))
             json_response = response.json()
             size = len(json_response)
             print("getTheatreMovies - " + str(size))
@@ -119,8 +111,6 @@ class script:
                 theatre = ', '.join(str(e) for e in theatre_set)
                 release_year = val['releaseYear'] if 'releaseYear' in val else 0
 
-                # showtimes = json.dumps(showtimes_json)
-
                 
                 meta_data = {
                     'showtimes' : showtimes,
@@ -143,34 +133,17 @@ class script:
 
 
 
-        # self.get_stream(url)
-
     def clear_tables(self):
         models.clear_table_contents()
 
 
-    # def get_stream(self, url, headers=None):
-    #     s = requests.Session()
-
-    #     with s.get(url, headers=None, stream=True) as resp:
-    #         for line in resp.iter_lines():
-    #             if line:
-    #                 print(line)
-    #                 # response_formated = json.loads(line)
-    #                 # print(response_formated)
-                    
-    # def get_stream_chunk(self, url, headers=None):
-    #     s = requests.Session()
-
-    #     with s.get(url, headers=None, stream=True) as resp:
-    #         for chunk in resp.iter_content(chunk_size=1):
-    #             if chunk.endswith("\n"):
-    #                 print(line.json())
+    
 
 
-# clear tables
-script().clear_tables()
-# reload table with new data from TMS
-script().getTVMovies()
-script().getTheatreMovies()
+# EXECUTE in house
+# # clear tables
+# script().clear_tables()
+# # reload table with new data from TMS
+# script().getTVMovies()
+# script().getTheatreMovies()
 

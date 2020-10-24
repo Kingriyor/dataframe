@@ -101,10 +101,7 @@ def clear_table_contents():
     db.session.commit()
 
 
-
-
-if __name__ == "__main__":
-    #TODO - ensure movies with same tmsID are not counted as more than one for the count in dataframe
+def execute():
     db_connection = create_engine(connection_string)
     db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
 
@@ -112,3 +109,13 @@ if __name__ == "__main__":
     print ("Creating database tables...")
     db.create_all()
     print ("Done!")
+
+# Run infile
+# if __name__ == "__main__":
+#     db_connection = create_engine(connection_string)
+#     db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
+
+#     # Run this file directly to create the database tables.
+#     print ("Creating database tables...")
+#     db.create_all()
+#     print ("Done!")
