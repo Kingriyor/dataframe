@@ -31,6 +31,11 @@ OR
 - $ pipenv shell
 ```
 
+## Running the unittest
+
+```
+$ python test.py
+```
 
 ## Running the Dataframe script
 
