@@ -13,7 +13,7 @@
 2) create DB
 
 ```
-- import the database export shared into your own DB (/database/dataframe.sql)
+- import the database export shared(/database/dataframe.sql) into your own DB 
 
 OR
 
