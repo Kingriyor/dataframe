@@ -2,6 +2,8 @@ import models
 from tms_script import script
 from top_five import top_five_genres
 
+print('\n')
+
 # create DB tables
 models.execute()
 
