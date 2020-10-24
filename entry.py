@@ -10,14 +10,17 @@ models.execute()
 print('\n')
 
 # clear tables
-print('clearing existing records in tables ......')
+print('Clearing existing records in tables ......')
 script().clear_tables()
-# reload table with new data from TMS
+print('Done!')
 
+
+# reload table with new data from TMS
 print('\n')
-print('Updating Table contents ........')
+print('Updating database table contents ........')
 script().getTVMovies()
 script().getTheatreMovies()
+print('Done!')
 
 print('\n')
 
