@@ -37,11 +37,6 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tms_theatreUrl(self):
-        base_url = config['tms']['base_url']
-        api_key = config['tms']['key']
-        lineupId = config['tms']['lineupId']
-        zip_code = config['tms']['zip_code']
-        startDateTime = datetime.today().strftime('%Y-%m-%d')
         status_code = 404
 
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
