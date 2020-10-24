@@ -27,31 +27,9 @@ OR
 - create an SQL db named 'dataframe'
 ```
 
-3) create tables in DB
-
-- Run `models.py` file directly to create the database tables:
-
-```
-$ python models.py
-```
-
-You only need to do this once, unless you change your model definitions
-
---------------------------------------------------------------------------------
-
-
-
-
-## Running the TMS script to load data in Database
-
-```
-$ python script.py
-```
-
-
 ## Running the Dataframe script
 
 ```
-$ python top_five.py
+$ python entry.py
 ```
 
