@@ -21,4 +21,6 @@ if __name__ == "__main__":
 
     # from views import *
 
+    # Add REST endpoints if needed
+
     app.run(debug=True)
