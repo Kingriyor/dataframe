@@ -1,12 +1,10 @@
 import pandas as pd
 import glob
-from app import connection_string
-from sqlalchemy import create_engine
+from app import db_connection
 
 
 def read_db(table_name) -> pd.DataFrame:
     # This function gets a dataframe from a database table
-    db_connection = create_engine(connection_string)
 
     query_string = ''
 
