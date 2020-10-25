@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Oct 24, 2020 at 09:27 AM
+-- Generation Time: Oct 25, 2020 at 01:34 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.4.2
 
@@ -34,9 +34,9 @@ CREATE TABLE `theatre_movies` (
   `theatre` varchar(100) DEFAULT NULL,
   `release_year` int(11) DEFAULT NULL,
   `showtimes` varchar(1000) DEFAULT NULL,
-  `tmsId` varchar(100) DEFAULT NULL,
+  `tmsId` varchar(15) DEFAULT NULL,
   `rootId` varchar(100) DEFAULT NULL,
-  `releaseDate` varchar(100) DEFAULT NULL,
+  `releaseDate` varchar(50) DEFAULT NULL,
   `titleLang` varchar(100) DEFAULT NULL,
   `longDescription` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -57,9 +57,9 @@ CREATE TABLE `tv_movies` (
   `startTime` varchar(100) DEFAULT NULL,
   `endTime` varchar(100) DEFAULT NULL,
   `duration` varchar(100) DEFAULT NULL,
-  `tmsId` varchar(100) DEFAULT NULL,
+  `tmsId` varchar(15) DEFAULT NULL,
   `rootId` varchar(100) DEFAULT NULL,
-  `releaseDate` varchar(100) DEFAULT NULL,
+  `releaseDate` varchar(50) DEFAULT NULL,
   `titleLang` varchar(100) DEFAULT NULL,
   `longDescription` varchar(500) DEFAULT NULL,
   `stationId` varchar(100) DEFAULT NULL
