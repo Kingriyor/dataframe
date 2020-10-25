@@ -58,15 +58,15 @@ class script:
 
                 # print(genres)
 
-                # TODO send to rabbitmq and create a consumer to carry out the try-catch below
+                # ALTERNATIVELY - send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
                     db_response = models.create_movie(title, genres, description, release_year, channel, 'tv', meta_data)
                     if db_response == False:
                         print ("error saving to DB")
-                        # TODO then send to an error queue
+                        # Then send current record to an error queue if needed
                 except:
                     print ("error saving to DB")
-                    # TODO then send to an error queue
+                    # Then send current record to an error queue if needed
 
 
     def getTheatreMovies(self):
@@ -121,15 +121,15 @@ class script:
                     'longDescription' : val['longDescription'] if 'longDescription' in val else ""
                 }
 
-                # TODO send to rabbitmq and create a consumer to carry out the try-catch below
+                # ALTERNATIVELY - send to rabbitmq and create a consumer to carry out the try-catch below
                 try:
                     db_response = models.create_movie(title, genres, description, release_year, theatre, 'theatre', meta_data)
                     if db_response == False:
                         print ("error saving to DB")
-                        # TODO then send to an error queue
+                        # Then send current record to an error queue if needed
                 except:
                     print ("error saving to DB")
-                    # TODO then send to an error queue
+                    # Then send current record to an error queue if needed
 
 
 
@@ -140,7 +140,7 @@ class script:
     
 
 
-# EXECUTE in house
+# EXECUTE in file
 # # clear tables
 # script().clear_tables()
 # # reload table with new data from TMS
