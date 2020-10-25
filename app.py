@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config
+from sqlalchemy import create_engine
 
 app = Flask(__name__)
 
@@ -11,6 +12,8 @@ host_port = config['database']['mysql']['host_port']
 
 
 connection_string = 'mysql+pymysql://'+ username +':'+ password + '@' + host_port + '/' + db
+db_connection = create_engine(connection_string)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = connection_string
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
