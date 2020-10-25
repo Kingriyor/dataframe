@@ -1,5 +1,4 @@
-from app import db, connection_string
-from sqlalchemy import create_engine
+from app import db, db_connection
 
 class Theatre_movies(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -100,7 +99,6 @@ def clear_table_contents():
 
 
 def execute():
-    db_connection = create_engine(connection_string)
     db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
 
     # Run this file directly to create the database tables.
