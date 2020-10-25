@@ -1,6 +1,6 @@
 import pandas as pd
 import glob
-from app import db_connection
+from models import db_connection
 
 
 def read_db(table_name) -> pd.DataFrame:
