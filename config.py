@@ -1,7 +1,4 @@
 
-
-from os import environ
-
 config = {
     "tms" : {
         "base_url" : "http://data.tmsapi.com/v1.1",
@@ -12,7 +9,6 @@ config = {
     "database": {
         "mysql": {
             "host_port": 'localhost:8889',
-            # "port": int(environ.get('SMSC_GATEWAY_MYSQL_PORT')),
             "username": 'root',
             "password": 'root',
             "database": "dataframe"

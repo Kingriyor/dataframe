@@ -137,13 +137,5 @@ class script:
         models.clear_table_contents()
 
 
-    
 
-
-# EXECUTE in file
-# # clear tables
-# script().clear_tables()
-# # reload table with new data from TMS
-# script().getTVMovies()
-# script().getTheatreMovies()
 
