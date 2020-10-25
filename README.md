@@ -37,7 +37,7 @@ OR
 $ python test.py
 ```
 
-## Run the Setup (This is a ONE-TIME script ran to setup the SQL database which includes creating tables and settine the sql_mode to accomodate our queries)
+## Run the Setup (This is a ONE-TIME script ran to setup the SQL database which includes creating tables and setting the sql_mode to accomodate our queries)
 
 ```
 $ python setup.py
