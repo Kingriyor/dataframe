@@ -25,6 +25,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(connected)
 
     def test_tms_tvUrl(self):
+        # If this test fails with a response.status_code = 403, this is most likely because the TMS key has been used more than 50 times today. Simply add another TMS key to the config.py file
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
         try:
             response = requests.request("GET", url, timeout=10, headers={}, data = {})
@@ -34,6 +35,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tms_theatreUrl(self):
+        # If this test fails with a response.status_code = 403, this is most likely because the TMS key has been used more than 50 times today. Simply add another TMS key to the config.py file
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         try:
             response = requests.request("GET", url, timeout=10, headers={}, data = {})
