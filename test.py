@@ -1,5 +1,4 @@
-from app import db, connection_string
-from sqlalchemy import create_engine
+from models import db_connection
 from config import config
 import unittest
 from datetime import datetime
@@ -17,7 +16,7 @@ class TestStringMethods(unittest.TestCase):
     def test_db(self):
         connected = False
         try:
-            db_connection = create_engine(connection_string)
+            # db_connection = create_engine(connection_string)
             test_res = db_connection.execute("Select 1")
             connected = True
         except:
@@ -30,7 +29,7 @@ class TestStringMethods(unittest.TestCase):
 
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
         try:
-            response = requests.request("GET", url, headers={}, data = {})
+            response = requests.request("GET", url, timeout=10, headers={}, data = {})
         except:
             print ("Request failed")
 
@@ -41,7 +40,7 @@ class TestStringMethods(unittest.TestCase):
 
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         try:
-            response = requests.request("GET", url, headers={}, data = {})
+            response = requests.request("GET", url, timeout=10, headers={}, data = {})
         except:
             print ("Request failed")
 

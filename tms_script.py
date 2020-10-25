@@ -17,7 +17,7 @@ class script:
     def getTVMovies(self):
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
         try:
-            response = requests.request("GET", url, headers={}, data = {})
+            response = requests.request("GET", url, timeout=10, headers={}, data = {})
         except:
             print ("Request failed")
             return
@@ -72,7 +72,7 @@ class script:
     def getTheatreMovies(self):
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         try:
-            response = requests.request("GET", url, headers={}, data = {})
+            response = requests.request("GET", url, timeout=10, headers={}, data = {})
         except:
             print ("Request failed")
             return
