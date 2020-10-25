@@ -2,9 +2,7 @@ from app import db, connection_string
 from sqlalchemy import create_engine
 
 class Theatre_movies(db.Model):
-    # We always need an id
     id = db.Column(db.Integer, primary_key=True)
-
     title = db.Column(db.String(100))
     genres = db.Column(db.String(100))
     description = db.Column(db.String(200))
@@ -110,12 +108,3 @@ def execute():
     db.create_all()
     print ("Done!")
 
-# Run infile
-# if __name__ == "__main__":
-#     db_connection = create_engine(connection_string)
-#     db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
-
-#     # Run this file directly to create the database tables.
-#     print ("Creating database tables...")
-#     db.create_all()
-#     print ("Done!")

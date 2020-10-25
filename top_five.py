@@ -88,5 +88,3 @@ def top_five_genres():
 
     return top5
 
-# Run infile
-# top_five_genres()
