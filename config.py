@@ -2,7 +2,7 @@
 config = {
     "tms" : {
         "base_url" : "http://data.tmsapi.com/v1.1",
-        "key" : "3jtjdcn5fdzcqut3t9pww5b9",
+        "key" : "f7rwk42v8wvmgw5gcfpe5fgd",
         "lineupId" : "USA-TX42500-X",
         "zip_code" : "78701"
     },
