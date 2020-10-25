@@ -10,7 +10,9 @@ from top_five import top_five_genres # Function 2
 
 # create DB tables
 print('\n')
+print ("Creating database tables...")
 models.execute()
+print('Done!')
 
 print('\n')
 
