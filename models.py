@@ -48,8 +48,11 @@ tv_movies = Table(
 )
 
 def execute():
-    db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
     meta.create_all(db_connection)
+
+def sql_mode():
+    db_connection.execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")
+
 
 def create_movie(title, genres, description, release_year, theatre_or_channel, type='theatre', meta_data={}):
     allowed_types = ['theatre','tv']

@@ -42,7 +42,7 @@ def top_five_genres():
     theatre['theatre_Ids'] = theatre['theatre_Ids'].map(lambda x: x.replace(',,', ','))
     movies['channels'] = movies['channels'].map(lambda x: x.replace(',,', ','))
 
-    # convert genres to a lists from comma-seperated strings
+    # convert genres to lists from comma-seperated strings
     theatre['genres'] = theatre['genres'].map(lambda x: x.strip(',').split(','))
     movies['genres'] = movies['genres'].map(lambda x: x.strip(',').split(','))
 

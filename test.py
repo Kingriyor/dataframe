@@ -16,17 +16,15 @@ class TestStringMethods(unittest.TestCase):
     def test_db(self):
         connected = False
         try:
-            # db_connection = create_engine(connection_string)
-            test_res = db_connection.execute("Select 1")
+            db_connection.execute("Select 1")
             connected = True
         except:
+            connected = False
             print("Something is broken")
         
         self.assertTrue(connected)
 
     def test_tms_tvUrl(self):
-        status_code = 404
-
         url = self.base_url + "/movies/airings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&lineupId=" + self.lineupId + "&startDateTime=" + self.startDateTime
         try:
             response = requests.request("GET", url, timeout=10, headers={}, data = {})
@@ -36,8 +34,6 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tms_theatreUrl(self):
-        status_code = 404
-
         url = self.base_url + "/movies/showings?zip=" + self.zip_code + "&api_key=" + self.api_key + "&startDate=" + self.startDateTime
         try:
             response = requests.request("GET", url, timeout=10, headers={}, data = {})
