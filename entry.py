@@ -31,6 +31,8 @@ print('Done!')
 
 print('\n')
 
+# NB if you are using an already loaded DB or want to use sample db includes in this repo, then comment everything above this comment
+
 # Run Pandas algorithm (Second function from question)
 top_five_genres()
 
