@@ -31,7 +31,7 @@ print('Done!')
 
 print('\n')
 
-# NB if you are using an already loaded DB or want to use sample db includes in this repo, then comment everything above this comment
+# NB if you want to use sample db (database/sample_25-10-2020_dataframe.sql) included in this repo, then comment everything above this comment to prevent current day's data from over-writing previous
 
 # Run Pandas algorithm (Second function from question)
 top_five_genres()
