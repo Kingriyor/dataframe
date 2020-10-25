@@ -22,5 +22,8 @@ if __name__ == "__main__":
     # from views import *
 
     # Add REST endpoints if needed
+    print("\n")
+    print ("Add REST endpoints if needed here, Else run the entry.py file for dataframe script")
+    print("\n")
 
     app.run(debug=True)
