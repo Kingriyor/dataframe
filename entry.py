@@ -8,21 +8,14 @@ from top_five import top_five_genres # Function 2
 
 
 
-# create DB tables
-print('\n')
-print ("Creating database tables...")
-models.execute()
-print('Done!')
-
-print('\n')
-
 # clear tables
-print('Clearing existing records in tables ......')
+print('\n')
+print('Clearing existing records in tables if any ......')
 script().clear_tables()
 print('Done!')
 
 
-# reload table with new data from TMS (First function from question)
+# load table with new data from TMS (First function from question)
 print('\n')
 print('Updating database table contents ........')
 script().getTVMovies()
