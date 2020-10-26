@@ -51,12 +51,12 @@ def top_five_genres():
     # Group the Movie and Theatre list based on ‘Genres’ ------------------------------------------------------------------------------------------------
     theatre_genre_group = explode_and_groupby(theatre, groupby=True)
     # print('\n theatre_genre_groups \n')
-    # print(theatre_genre_group)
+    # print(theatre_genre_group.to_string())
     # print('\n\n')
 
     tv_genre_group = explode_and_groupby(movies, groupby=True)
     # print('\n tv_genre_groups \n')
-    # print(tv_genre_group)
+    # print(tv_genre_group.to_string())
     # print('\n\n')
 
     # ---------------------------------------------------------------------------------------------------------------------------------------------------
