@@ -70,7 +70,7 @@ def top_five_genres():
     # Group combined data based on the Genres and Return the Top 5 Genres with the highest movie count along with the movie details ------------------------------------------------------------------------------------------------
     top5 = explode_and_groupby(joined_data).head(5)
     print('\n top5 Genres \n')
-    print(top5)
+    print(top5.to_string())
     print('\n\n')
 
     top5_list = list(top5.index)
@@ -81,7 +81,7 @@ def top_five_genres():
     # final_data.drop_duplicates(keep='first',inplace=True, subset="tmsId")
 
     print('\n movie details for top5 Genres \n')
-    print(top5_movies_details)
+    print(top5_movies_details.to_string())
     print('\n\n')
 
     return top5
